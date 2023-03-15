@@ -94,7 +94,7 @@ def instruccion(cadena):
 
         elif char == '\t':
             n_columna +=4
-            cadena = cadena[4:]
+            cadena = cadena[1:]
             pointer = 0
 
         elif char == '\n':
@@ -107,11 +107,11 @@ def instruccion(cadena):
             cadena = cadena[1:]
             pointer = 0
             n_columna += 1
-    
-    for lexema in lista_lexemas:
-        print(lexema)
 
-    #return lista_lexemas
+    return lista_lexemas
+    """for lexema in lista_lexemas:
+        print(lexema)"""
+
 
 def armar_lexema(cadena):
     global  n_linea
@@ -187,13 +187,15 @@ def operar_():
             instrucciones.append(operacion)
         else:
             break
-
-    for instruccion in instrucciones:
-        print(instruccion.operar(None))
-
     return instrucciones
 
-entrada= '''{
+    """for instruccion in instrucciones:
+        print(instruccion.operar(None))"""
+
+    
+
+entrada= '''
+{
 	{
         "Operacion":"Suma"
 		"Valor1" : 4.5
@@ -220,7 +222,7 @@ entrada= '''{
 	"Color-Fondo-Nodo":"Amarillo"
 	"Color-Fuente-Nodo":"Rojo"
 	"Forma-Nodo":"Circulo"
-}'''
+} '''
 
-instruccion(entrada)
-operar_()
+"""instruccion(entrada)
+operar_()"""

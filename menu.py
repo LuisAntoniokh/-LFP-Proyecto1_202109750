@@ -45,6 +45,7 @@ class Pantalla_Principal():
         Button(self.frameAyuda, font=("Arial", 12), text="Temas de ayuda", width=20, bg ="#dfe4ea", command=self.ayuda).place(x=50, y= 160)
         
         self.frameAyuda.mainloop()
+
         self.frameArchivo.mainloop()
 
     def abrirArchivo(self):
@@ -91,6 +92,5 @@ class Pantalla_Principal():
             self.nventana.destroy()    
         
         Button(self.nventana, text="Cerrar", fg="white", font=("Arial", 12), bg="red", command=cerrarAyuda).pack()
-
 
 r = Pantalla_Principal()
