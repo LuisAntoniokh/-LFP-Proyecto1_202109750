@@ -1,8 +1,8 @@
 {
 	{
 		"Operacion":"Suma"
-		"Valor1":4.5
-		"Valor2":5.32
+		"Valor1" : 4.5
+		"Valor2" : 5.32
 	},
 	{
 		"Operacion":"Resta"
