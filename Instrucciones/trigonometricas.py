@@ -15,11 +15,14 @@ class Trigonometricas(Expression):
             leftValue = self.left.operar(arbol)
 
         if self.tipo.operar(arbol) == 'Seno':
-            return math.sin(leftValue)
+            resp = math.sin(leftValue)
+            return math.degrees(resp)
         elif self.tipo.operar(arbol) == 'Coseno':
-            return math.cos(leftValue)
+            resp = math.cos(leftValue)
+            return math.degrees(resp)
         elif self.tipo.operar(arbol) == 'Tangente':
-            return math.tan(leftValue)
+            resp = math.tan(leftValue)
+            return math.degrees(resp)
         else:
             return None
         
