@@ -13,3 +13,6 @@ class Numero(Expression):
     
     def getColumna(self):
         return super().getColumna()
+    
+    def getGraphLabel(self):
+        return self.valor

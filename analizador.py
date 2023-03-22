@@ -187,12 +187,28 @@ def operar_():
             instrucciones.append(operacion)
         else:
             break
-    return instrucciones
-
     """for instruccion in instrucciones:
         print(instruccion.operar(None))"""
+        
+    return instrucciones
 
-    
+def armar_arbolGraph(instruccion, cont):
+    cont = 0 
+    strcadena = 'subgraph cluster'+ str(cont) + ' { \n'
+    armar_nodo(instruccion, cont, strcadena)
+    strcadena += '}'
+
+def armar_nodo(expresion, Xavineta, cadenita):
+    cadenita += expresion.getnodeDefinition(Xavineta)
+    if expresion.left != None:
+        Xavineta+=1
+        cadenita += armar_nodo(expresion.left, Xavineta, cadenita)
+        cadenita += expresion.getGraphnode() + ' -> ' + expresion.left.getGraphnode() + '\n'
+
+    if expresion.right != None:
+        Xavineta+=1
+        cadenita += armar_nodo(expresion.right, Xavineta, cadenita)
+        cadenita += expresion.getGraphnode() + ' -> ' + expresion.right.getGraphnode() + '\n'
 
 entrada= '''
 {

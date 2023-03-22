@@ -34,6 +34,9 @@ class Aritmetica(Expression):
             return 1/leftValue
         else:
             return None
+    
+    def getGraphLabel(self):
+        return self.tipo + '\\n'+ str(self.operar(None))
 
     def getFila(self):
         return super().getFila()
