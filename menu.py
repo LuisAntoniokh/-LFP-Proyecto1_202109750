@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
-from analizador import instruccion, operar_
+from analizador import getErrores, instruccion, operar_
 import webbrowser
 
 class Pantalla_Principal():
@@ -12,6 +12,7 @@ class Pantalla_Principal():
         self.venMain.config(bg = "#1e272e")
         self.venMain.resizable(False, False)
         self.pan1()
+        self.venMain.mainloop()
 
     def pan1(self):
         self.frameArchivo = Frame(self.venMain, bg="#00cec9", borderwidth=2, relief="ridge") #frameArchivo.grid(row = 0, column = 0)
@@ -29,7 +30,7 @@ class Pantalla_Principal():
 
         Button(self.frameArchivo, font=("Arial", 12), text="Analizar", width=20, bg ="#dfe4ea", command=self.lizador).place(x=50, y= 210)
 
-        Button(self.frameArchivo, font=("Arial", 12), text="Errores", width=20, bg ="#dfe4ea").place(x=50, y= 260)
+        Button(self.frameArchivo, font=("Arial", 12), text="Errores", width=20, bg ="#dfe4ea", command=self.getErrores).place(x=50, y= 260)
 
         Button(self.frameArchivo, font=("Arial", 12), text="Salir", width=20, command=self.salir, bg ="#dfe4ea").place(x=50, y= 310)
 
@@ -44,7 +45,7 @@ class Pantalla_Principal():
 
         Button(self.frameAyuda, font=("Arial", 12), text="Temas de ayuda", width=20, bg ="#dfe4ea", command=self.ayuda).place(x=50, y= 160)
         
-        txt_data = Text(self.frameAyuda, width=23, height= 5, name="txt_data")
+        txt_data = Text(self.frameAyuda, width=23, height= 8, name="txt_data")
         txt_data.place(x=50, y= 210)
 
         self.frameAyuda.mainloop()
@@ -89,6 +90,17 @@ class Pantalla_Principal():
         respuestas = operar_()
         for respuesta in respuestas:
             print(respuesta.operar(None))
+
+    def getErrores(self):
+        lista_errores = getErrores()
+        contador = 1
+        with open('ERRORES_202109750.txt', 'w') as outfile:
+            outfile.write('{\n')
+            while lista_errores:
+                error = lista_errores.pop(0)
+                outfile.write(str(error.operar(contador)) + ',\n')
+                contador +=1
+            outfile.write('}')
 
     def salir(self):
         self.venMain.destroy()

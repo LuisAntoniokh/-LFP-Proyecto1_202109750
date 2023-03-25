@@ -1,3 +1,4 @@
+from Errores.errores import Errores
 from Instrucciones.aritmeticas import *
 from Instrucciones.trigonometricas import *
 from Abstracto.lexema import *
@@ -43,11 +44,13 @@ global  n_linea
 global  n_columna
 global  instrucciones
 global  lista_lexemas
+global lista_errores
 
 n_linea = 1
 n_columna = 1
 lista_lexemas = []
 instrucciones = []
+lista_errores = []
 
 def instruccion(cadena):
     global  n_linea
@@ -102,12 +105,18 @@ def instruccion(cadena):
             pointer = 0
             n_linea += 1
             n_columna = 1
-        
-        else:
+
+        elif char == ' ' or char == '\r' or char == '{' or char == '}' or char == ',' or char == '.' or char ==':':
+            n_columna += 1
             cadena = cadena[1:]
             pointer = 0
-            n_columna += 1
-
+        
+        else:
+            lista_errores.append(Errores(char, n_linea, n_columna))
+            cadena = cadena[1:]
+            pointer = 0
+            n_columna +=1
+    
     return lista_lexemas
     """for lexema in lista_lexemas:
         print(lexema)"""
@@ -209,6 +218,10 @@ def armar_nodo(expresion, Xavineta, cadenita):
         Xavineta+=1
         cadenita += armar_nodo(expresion.right, Xavineta, cadenita)
         cadenita += expresion.getGraphnode() + ' -> ' + expresion.right.getGraphnode() + '\n'
+
+def getErrores():
+    global lista_errores
+    return lista_errores
 
 entrada= '''
 {
