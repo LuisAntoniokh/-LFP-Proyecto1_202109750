@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
-from analizador import getErrores, instruccion, operar_
+from analizador import armar_arbolGraph, getErrores, instruccion, operar_
 import webbrowser
 
 class Pantalla_Principal():

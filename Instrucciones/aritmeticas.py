@@ -36,7 +36,7 @@ class Aritmetica(Expression):
             return None
     
     def getGraphLabel(self):
-        return self.tipo + '\\n'+ str(self.operar(None))
+        return str(self.tipo) + "\\n"+ str(self.operar(None))
 
     def getFila(self):
         return super().getFila()

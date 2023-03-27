@@ -1,0 +1,27 @@
+digraph G {
+            charset="utf-8";
+subgraph cluster0 { 
+n00 [ shape=note, style=filled, fillcolor="#82589F", label="Suma\n9.82"]; 
+n10 [ shape=note, style=filled, fillcolor="#82589F", label="4.5"]; 
+n00 -> n10
+n20 [ shape=note, style=filled, fillcolor="#82589F", label="5.32"]; 
+n00 -> n20
+}subgraph cluster1 { 
+n31 [ shape=note, style=filled, fillcolor="#82589F", label="Resta\n-995.5"]; 
+n41 [ shape=note, style=filled, fillcolor="#82589F", label="4.5"]; 
+n31 -> n41
+n51 [ shape=note, style=filled, fillcolor="#82589F", label="Potencia\n1000"]; 
+n61 [ shape=note, style=filled, fillcolor="#82589F", label="10"]; 
+n51 -> n61
+n71 [ shape=note, style=filled, fillcolor="#82589F", label="3"]; 
+n51 -> n71
+n31 -> n51
+}subgraph cluster2 { 
+n82 [ shape=note, style=filled, fillcolor="#82589F", label="Suma\n6.32"]; 
+n92 [ shape=note, style=filled, fillcolor="#82589F", label="Seno\n1.0"]; 
+n102 [ shape=note, style=filled, fillcolor="#82589F", label="90"]; 
+n92 -> n102
+n82 -> n92
+n112 [ shape=note, style=filled, fillcolor="#82589F", label="5.32"]; 
+n82 -> n112
+}}

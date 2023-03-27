@@ -15,4 +15,4 @@ class Numero(Expression):
         return super().getColumna()
     
     def getGraphLabel(self):
-        return self.valor
+        return str(self.valor)

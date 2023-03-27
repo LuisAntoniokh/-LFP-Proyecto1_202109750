@@ -15,8 +15,8 @@ class Trigonometricas(Expression):
             leftValue = self.left.operar(arbol)
 
         if self.tipo.operar(arbol) == 'Seno':
-            resp = math.sin(leftValue)
-            return math.degrees(resp)
+            resp = math.sin(math.radians(leftValue))
+            return resp
         elif self.tipo.operar(arbol) == 'Coseno':
             resp = math.cos(leftValue)
             return math.degrees(resp)
@@ -27,7 +27,7 @@ class Trigonometricas(Expression):
             return None
     
     def getGraphLabel(self):
-        return self.tipo + '\\n'+ str(self.operar(None))
+        return str(self.tipo) + "\\n"+ str(self.operar(None))
 
     def getFila(self):
         return super().getFila()

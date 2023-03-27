@@ -1,3 +1,4 @@
+import os
 from Errores.errores import Errores
 from Instrucciones.aritmeticas import *
 from Instrucciones.trigonometricas import *
@@ -45,7 +46,9 @@ global  n_columna
 global  instrucciones
 global  lista_lexemas
 global lista_errores
+global contx
 
+contx = 0
 n_linea = 1
 n_columna = 1
 lista_lexemas = []
@@ -190,34 +193,48 @@ def operar():
 
 def operar_():
     global instrucciones
+    cont = 0
+    strcadena = """digraph G {
+            charset="utf-8";\n"""
     while True:
         operacion = operar()
         if operacion:
+            strcadena += armar_arbolGraph(operacion,cont)
+            cont +=1
             instrucciones.append(operacion)
         else:
             break
+    strcadena += "}"
+    with open('Proyecto1.dot', 'w', encoding="utf-8") as f:
+        f.write(strcadena)
+    os.system('dot -Tpng Proyecto1.dot -o Proyecto1.pdf')
+    print (strcadena)
     """for instruccion in instrucciones:
         print(instruccion.operar(None))"""
         
     return instrucciones
 
 def armar_arbolGraph(instruccion, cont):
-    cont = 0 
-    strcadena = 'subgraph cluster'+ str(cont) + ' { \n'
-    armar_nodo(instruccion, cont, strcadena)
-    strcadena += '}'
+    contador = 0
+    strcadena = "subgraph cluster"+ str(cont) + " { \n"
+    strcadena += armar_nodo(instruccion, contador, cont)
+    strcadena += "}"
+    return strcadena
 
-def armar_nodo(expresion, Xavineta, cadenita):
-    cadenita += expresion.getnodeDefinition(Xavineta)
-    if expresion.left != None:
-        Xavineta+=1
-        cadenita += armar_nodo(expresion.left, Xavineta, cadenita)
-        cadenita += expresion.getGraphnode() + ' -> ' + expresion.left.getGraphnode() + '\n'
+def armar_nodo(expresion, Xav, cluster):
+    global contx
+    cadenita = ""
+    cadenita += expresion.getnodeDefinition(contx, cluster)
+    contx +=1 
+    if not isinstance(expresion, Numero) and expresion.left != None:
+        cadenita += armar_nodo(expresion.left, contx, cluster)
+        cadenita += expresion.getGraphnode() + " -> " + expresion.left.getGraphnode() + "\n"
 
-    if expresion.right != None:
-        Xavineta+=1
-        cadenita += armar_nodo(expresion.right, Xavineta, cadenita)
-        cadenita += expresion.getGraphnode() + ' -> ' + expresion.right.getGraphnode() + '\n'
+    if not isinstance(expresion, Numero) and not isinstance(expresion, Trigonometricas) and expresion.right != None:
+        cadenita += armar_nodo(expresion.right, contx, cluster)
+        cadenita += expresion.getGraphnode() + " -> " + expresion.right.getGraphnode() + "\n"
+
+    return cadenita
 
 def getErrores():
     global lista_errores

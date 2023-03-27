@@ -18,11 +18,12 @@ class Expression(ABC):
         return self.columna
     
     def getGraphnode(self):
-        return 'n'+str(self.correlativo)
+        return "n"+str(self.correlativo)+str(self.cluster)
     
     def getGraphLabel(self):
         pass
     
-    def getnodeDefinition(self, index):
+    def getnodeDefinition(self, index, cluster):
         self.correlativo = index
-        return self.getGraphnode(index) + ' [ label=\''+ self.getGraphLabel() + '\']; \n'
+        self.cluster = cluster
+        return self.getGraphnode() + " [ shape=note, style=filled, fillcolor=\"#82589F\", label=\""+ self.getGraphLabel() + "\"]; \n"
