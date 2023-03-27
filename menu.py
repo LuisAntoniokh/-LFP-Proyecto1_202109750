@@ -94,7 +94,7 @@ class Pantalla_Principal():
     def getErrores(self):
         lista_errores = getErrores()
         contador = 1
-        with open('ERRORES_202109750.txt', 'w') as outfile:
+        with open('ERRORES_202109750.json', 'w') as outfile:
             outfile.write('{\n')
             while lista_errores:
                 error = lista_errores.pop(0)
