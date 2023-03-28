@@ -26,4 +26,4 @@ class Expression(ABC):
     def getnodeDefinition(self, index, cluster):
         self.correlativo = index
         self.cluster = cluster
-        return self.getGraphnode() + " [ shape=note, style=filled, fillcolor=\"#82589F\", label=\""+ self.getGraphLabel() + "\"]; \n"
+        return self.getGraphnode() + " [ shape=circle, style=filled, fillcolor=\"Yellow\", label=\""+ self.getGraphLabel() + "\"]; \n"

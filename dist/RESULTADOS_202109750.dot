@@ -1,0 +1,61 @@
+digraph G {
+            charset="utf-8";
+subgraph cluster0 { 
+n00 [ shape=circle, style=filled, fillcolor="Yellow", label="Resta\n3.0"]; 
+n10 [ shape=circle, style=filled, fillcolor="Yellow", label="6.5"]; 
+n00 -> n10
+n20 [ shape=circle, style=filled, fillcolor="Yellow", label="3.5"]; 
+n00 -> n20
+}subgraph cluster1 { 
+n31 [ shape=circle, style=filled, fillcolor="Yellow", label="Multiplicacion\n64.0"]; 
+n41 [ shape=circle, style=filled, fillcolor="Yellow", label="Potencia\n8.0"]; 
+n51 [ shape=circle, style=filled, fillcolor="Yellow", label="2"]; 
+n41 -> n51
+n61 [ shape=circle, style=filled, fillcolor="Yellow", label="Raiz\n3.0"]; 
+n71 [ shape=circle, style=filled, fillcolor="Yellow", label="9"]; 
+n61 -> n71
+n81 [ shape=circle, style=filled, fillcolor="Yellow", label="2"]; 
+n61 -> n81
+n41 -> n61
+n31 -> n41
+n91 [ shape=circle, style=filled, fillcolor="Yellow", label="Potencia\n8.0"]; 
+n101 [ shape=circle, style=filled, fillcolor="Yellow", label="2"]; 
+n91 -> n101
+n111 [ shape=circle, style=filled, fillcolor="Yellow", label="Raiz\n3.0"]; 
+n121 [ shape=circle, style=filled, fillcolor="Yellow", label="9"]; 
+n111 -> n121
+n131 [ shape=circle, style=filled, fillcolor="Yellow", label="2"]; 
+n111 -> n131
+n91 -> n111
+n31 -> n91
+}subgraph cluster2 { 
+n142 [ shape=circle, style=filled, fillcolor="Yellow", label="Suma\n6.32"]; 
+n152 [ shape=circle, style=filled, fillcolor="Yellow", label="Seno\n1.0"]; 
+n162 [ shape=circle, style=filled, fillcolor="Yellow", label="90"]; 
+n152 -> n162
+n142 -> n152
+n172 [ shape=circle, style=filled, fillcolor="Yellow", label="5.32"]; 
+n142 -> n172
+}subgraph cluster3 { 
+n183 [ shape=circle, style=filled, fillcolor="Yellow", label="Resta\n100.0"]; 
+n193 [ shape=circle, style=filled, fillcolor="Yellow", label="Division\n250.0"]; 
+n203 [ shape=circle, style=filled, fillcolor="Yellow", label="500"]; 
+n193 -> n203
+n213 [ shape=circle, style=filled, fillcolor="Yellow", label="Division\n2.0"]; 
+n223 [ shape=circle, style=filled, fillcolor="Yellow", label="10"]; 
+n213 -> n223
+n233 [ shape=circle, style=filled, fillcolor="Yellow", label="5"]; 
+n213 -> n233
+n193 -> n213
+n183 -> n193
+n243 [ shape=circle, style=filled, fillcolor="Yellow", label="Multiplicacion\n150"]; 
+n253 [ shape=circle, style=filled, fillcolor="Yellow", label="10"]; 
+n243 -> n253
+n263 [ shape=circle, style=filled, fillcolor="Yellow", label="Multiplicacion\n15"]; 
+n273 [ shape=circle, style=filled, fillcolor="Yellow", label="3"]; 
+n263 -> n273
+n283 [ shape=circle, style=filled, fillcolor="Yellow", label="5"]; 
+n263 -> n283
+n243 -> n263
+n183 -> n243
+}}

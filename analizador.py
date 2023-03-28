@@ -205,9 +205,9 @@ def operar_():
         else:
             break
     strcadena += "}"
-    with open('Proyecto1.dot', 'w', encoding="utf-8") as f:
+    with open('RESULTADOS_202109750.dot', 'w', encoding="utf-8") as f:
         f.write(strcadena)
-    os.system('dot -Tpng Proyecto1.dot -o Proyecto1.pdf')
+    os.system('dot -Tpng RESULTADOS_202109750.dot -o RESULTADOS_202109750.pdf')
     print (strcadena)
     """for instruccion in instrucciones:
         print(instruccion.operar(None))"""

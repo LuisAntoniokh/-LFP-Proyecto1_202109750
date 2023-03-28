@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
@@ -39,9 +40,9 @@ class Pantalla_Principal():
         
         Label(self.frameAyuda, bg="#d35400", text="Ayuda", width=50, height=1, fg="white", font=("Arial", 20, "bold")).pack() ##e67e22, #ff3f34,
 
-        Button(self.frameAyuda, font=("Arial", 12), text="Manual de usuario", width=20, bg ="#dfe4ea", command=self.abrirManualUsuario).place(x=50, y= 60)
+        Button(self.frameAyuda, font=("Arial", 12), text="Manual de usuario", width=20, bg ="#dfe4ea", command=self.Monstrar_MU).place(x=50, y= 60)
 
-        Button(self.frameAyuda, font=("Arial", 12), text="Manual técnico", width=20, bg ="#dfe4ea", command=self.abrirManualUsuario).place(x=50, y= 110)
+        Button(self.frameAyuda, font=("Arial", 12), text="Manual técnico", width=20, bg ="#dfe4ea", command=self.Monstrar_MT).place(x=50, y= 110)
 
         Button(self.frameAyuda, font=("Arial", 12), text="Temas de ayuda", width=20, bg ="#dfe4ea", command=self.ayuda).place(x=50, y= 160)
         
@@ -105,9 +106,15 @@ class Pantalla_Principal():
     def salir(self):
         self.venMain.destroy()
 
-    def abrirManualUsuario(self):
-        busquedaArchivo = filedialog.askopenfile(title="Selecciona un documento pdf", filetypes=[("Documentos pdf", "*.pdf")])
-        webbrowser.open_new(busquedaArchivo)
+    def Monstrar_MU(self):
+        ruta_pdf = "file:///C:/Users/User/Documents/USAC/V%20Semestre/LFP/-LFP-Proyecto1_202109750/Manuales/Manual_de_usuario_proyecto1.pdf"
+        if os.name == 'nt':
+            os.startfile(ruta_pdf)
+    
+    def Monstrar_MT(self):
+        ruta_pdf = "file:///C:/Users/User/Documents/USAC/V%20Semestre/LFP/-LFP-Proyecto1_202109750/Manuales/Manual_tecnico_proyecto1.pdf"
+        if os.name == 'nt':
+            os.startfile(ruta_pdf)
 
     def ayuda(self):
         self.nventana = Toplevel(self.venMain)
